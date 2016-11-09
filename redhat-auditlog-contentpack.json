@@ -1,0 +1,387 @@
+{
+  "name": "Redhat Auditlog",
+  "description": "Adds pattersn for Redhat style Audit Logging",
+  "category": "Operating Systems",
+  "inputs": [],
+  "streams": [],
+  "outputs": [],
+  "dashboards": [],
+  "grok_patterns": [
+    {
+      "name": "AUDITLOG_RESULT",
+      "pattern": "result=\\b%{GREEDYDATA:audit_result}\\b"
+    },
+    {
+      "name": "AUDITLOG_UID",
+      "pattern": "uid=%{NUMBER:audit_uid}"
+    },
+    {
+      "name": "AUDITLOG_OBJ_ROLE",
+      "pattern": "obj_role=%{WORD:audit_obj_role}"
+    },
+    {
+      "name": "AUDITLOG_DATA",
+      "pattern": "data=\\\"%{GREEDYDATA:audit_data}\\\""
+    },
+    {
+      "name": "AUDITLOG_PERM",
+      "pattern": "perm=\\b%{GREEDYDATA:audit_perm}\\b"
+    },
+    {
+      "name": "AUDITLOG_FILETYPE",
+      "pattern": "filetype=%{WORD:audit_filetype}"
+    },
+    {
+      "name": "AUDITLOG_ITEMS",
+      "pattern": "items=%{NUMBER:audit_items}"
+    },
+    {
+      "name": "AUDITLOG_FLAGS",
+      "pattern": "flags=\\b%{GREEDYDATA:audit_flags}\\b"
+    },
+    {
+      "name": "AUDITLOG_MSGTYPE",
+      "pattern": "msgtype=\\b%{GREEDYDATA:audit_msgtype}\\b"
+    },
+    {
+      "name": "AUDITLOG_EGID",
+      "pattern": "egid=%{NUMBER:audit_egid}"
+    },
+    {
+      "name": "AUDITLOG_OSES",
+      "pattern": "oses=%{NUMBER:audit_oses}"
+    },
+    {
+      "name": "AUDITLOG_OPID",
+      "pattern": "opid=%{NUMBER:audit_opid}"
+    },
+    {
+      "name": "AUDITLOG_EUID",
+      "pattern": "euid=%{NUMBER:audit_euid}"
+    },
+    {
+      "name": "AUDITLOG_NEW_MEM",
+      "pattern": "new_mem=%{NUMBER:audit_new_mem}"
+    },
+    {
+      "name": "AUDITLOG_OAUID",
+      "pattern": "oauid=%{NUMBER:audit_oauid}"
+    },
+    {
+      "name": "AUDITLOG_COMM",
+      "pattern": "comm=%{QS:audit_comm}"
+    },
+    {
+      "name": "AUDITLOG_OUID",
+      "pattern": "ouid=%{NUMBER:audit_ouid}"
+    },
+    {
+      "name": "AUDITLOG_EXE",
+      "pattern": "exe=%{QS:audit_exe}"
+    },
+    {
+      "name": "AUDITLOG_OBJ",
+      "pattern": "obj=\\b%{GREEDYDATA:audit_obj}\\b"
+    },
+    {
+      "name": "AUDITLOG_CAP_PI",
+      "pattern": "cap_fi=\\b%{GREEDYDATA:audit_cap_pi}\\b"
+    },
+    {
+      "name": "AUDITLOG_GID",
+      "pattern": "gid=%{NUMBER:audit_gid}"
+    },
+    {
+      "name": "AUDITLOG_MODE",
+      "pattern": "mode=%{WORD:audit_mode}"
+    },
+    {
+      "name": "AUDITLOG_DEVMINOR",
+      "pattern": "devminor=%{NUMBER:audit_devminor}"
+    },
+    {
+      "name": "AUDITLOG_KEY",
+      "pattern": "key=%{QS:audit_key}"
+    },
+    {
+      "name": "AUDITLOG_ID",
+      "pattern": "id=%{NUMBER:audit_id}"
+    },
+    {
+      "name": "AUDITLOG_OBJ_GID",
+      "pattern": "obj_gid=%{NUMBER:audit_obj_gid}"
+    },
+    {
+      "name": "AUDITLOG_CAP_PE",
+      "pattern": "cap_fi=\\b%{GREEDYDATA:audit_cap_pe}\\b"
+    },
+    {
+      "name": "AUDITLOG_CMD",
+      "pattern": "cmd=\\\"%{GREEDYDATA:audit_cmd}\\\""
+    },
+    {
+      "name": "AUDITLOG_SGID",
+      "pattern": "sgid=%{NUMBER:audit_sgid}"
+    },
+    {
+      "name": "AUDITLOG_ICMPTYPE",
+      "pattern": "icmptype=%{WORD:audit_icmptype}"
+    },
+    {
+      "name": "AUDITLOG_OBJ_LEV_LOW",
+      "pattern": "obj_lev_low=%{NUMBER:audit_obj_lev_low}"
+    },
+    {
+      "name": "AUDITLOG_INODE",
+      "pattern": "inode=%{NUMBER:audit_inode}"
+    },
+    {
+      "name": "AUDITLOG_SES",
+      "pattern": "ses=%{NUMBER:audit_ses}"
+    },
+    {
+      "name": "AUDITLOG_INODE_UID",
+      "pattern": "inode_uid=%{NUMBER:audit_inode_uid}"
+    },
+    {
+      "name": "AUDITLOG_OLD_VCPU",
+      "pattern": "old_vcpu=%{NUMBER:audit_old_vcpu}"
+    },
+    {
+      "name": "AUDITLOG_OLD_DISK",
+      "pattern": "old_disk=%{WORD:audit_old_disk}"
+    },
+    {
+      "name": "AUDITLOG_SYSCALL",
+      "pattern": "syscall=%{NUMBER:audit_syscall}"
+    },
+    {
+      "name": "AUDITLOG_RES",
+      "pattern": "res=\\b%{GREEDYDATA:audit_res}\\b"
+    },
+    {
+      "name": "AUDITLOG_OBJ_USER",
+      "pattern": "obj_user=%{WORD:audit_obj_user}"
+    },
+    {
+      "name": "AUDITLOG_EXIT",
+      "pattern": "exit=%{NUMBER:audit_exit}"
+    },
+    {
+      "name": "AUDITLOG_CAP_FP",
+      "pattern": "cap_fi=\\b%{GREEDYDATA:audit_cap_fp}\\b"
+    },
+    {
+      "name": "AUDITLOG_DEV",
+      "pattern": "dev=%{DOTALL:audit_dev}"
+    },
+    {
+      "name": "AUDITLOG_SUCCESS",
+      "pattern": "success=%{WORD:audit_success}"
+    },
+    {
+      "name": "AUDITLOG_FSUID",
+      "pattern": "fsuid=%{NUMBER:audit_fsuid}"
+    },
+    {
+      "name": "AUDITLOG_HOSTNAME",
+      "pattern": "hostname=%{HOSTNAME:audit_hostname}"
+    },
+    {
+      "name": "AUDITLOG_NEW_DISK",
+      "pattern": "new_disk=%{WORD:audit_new_disk}"
+    },
+    {
+      "name": "AUDITLOG_OCOMM",
+      "pattern": "ocomm=\\\"%{GREEDYDATA:audit_ocomm}\\\""
+    },
+    {
+      "name": "AUDITLOG_SUBJ_CLR",
+      "pattern": "subj_clr=%{WORD:audit_clr}"
+    },
+    {
+      "name": "AUDITLOG_CGROUP",
+      "pattern": "cgroup=\\b%{GREEDYDATA:audit_cgroup}\\b"
+    },
+    {
+      "name": "AUDITLOG_NAME",
+      "pattern": "name=\\\"%{GREEDYDATA:audit_name}\\\""
+    },
+    {
+      "name": "AUDITLOG_SUID",
+      "pattern": "suid=%{NUMBER:audit_suid}"
+    },
+    {
+      "name": "AUDITLOG_FSGID",
+      "pattern": "fsgid=%{NUMBER:audit_fsgid}"
+    },
+    {
+      "name": "AUDITLOG_NEW_VCPU",
+      "pattern": "new_vcpu=%{NUMBER:audit_new_vcpu}"
+    },
+    {
+      "name": "AUDITLOG_PROTO",
+      "pattern": "proto=%{WORD:audit_proto}"
+    },
+    {
+      "name": "AUDITLOG_ADDR",
+      "pattern": "addr=%{IP:audit_addr}"
+    },
+    {
+      "name": "AUDITLOG_OLD_MEM",
+      "pattern": "old_mem=%{NUMBER:audit_old_mem}"
+    },
+    {
+      "name": "AUDITLOG_PROM",
+      "pattern": "prom=%{NUMBER:audit_prom}"
+    },
+    {
+      "name": "AUDITLOG_OGID",
+      "pattern": "ogid=%{NUMBER:ogid}"
+    },
+    {
+      "name": "AUDITLOG_PID",
+      "pattern": "pid=%{NUMBER:audit_pid}"
+    },
+    {
+      "name": "AUDITLOG_NEW_NET",
+      "pattern": "new_net=%{MAC:audit_new_net}"
+    },
+    {
+      "name": "AUDITLOG_SIG",
+      "pattern": "sig=%{NUMBER:audit_sig}"
+    },
+    {
+      "name": "AUDITLOG_FAMILY",
+      "pattern": "family=%{WORD:audit_family}"
+    },
+    {
+      "name": "AUDITLOG_NEW_GID",
+      "pattern": "new_gid=%{NUMBER:audit_new_gid}"
+    },
+    {
+      "name": "AUDITLOG_PATH",
+      "pattern": "path=%{QS:audit_path}"
+    },
+    {
+      "name": "AUDITLOG_PPID",
+      "pattern": "ppid=%{NUMBER:audit_ppid}"
+    },
+    {
+      "name": "AUDITLOG_SUBJ_USER",
+      "pattern": "subj_user=%{WORD:subj_user}"
+    },
+    {
+      "name": "AUDITLOG_SADDR",
+      "pattern": "saddr=\\b%{GREEDYDATA:audit_saddr}\\b"
+    },
+    {
+      "name": "AUDITLOG_TERMINAL",
+      "pattern": "terminal=\\\"%{GREEDYDATA:audit_terminal}\\\""
+    },
+    {
+      "name": "AUDITLOG_LIST",
+      "pattern": "list=%{NUMBER:audit_list}"
+    },
+    {
+      "name": "AUDITLOG",
+      "pattern": "((%{AUDITLOG_A:UNWANTED}|%{AUDITLOG_ACCT:UNWANTED}|%{AUDITLOG_ACCT:UNWANTED}|%{AUDITLOG_KEY:UNWANTED}|%{AUDITLOG_ARCH:UNWANTED}|%{AUDITLOG_AUID:UNWANTED}|%{AUDITLOG_CAPABILITY:UNWANTED}|%{AUDITLOG_CAP_FI:UNWANTED}|%{AUDITLOG_CAP_FP:UNWANTED}|%{AUDITLOG_CAP_PE:UNWANTED}|%{AUDITLOG_CAP_PI:UNWANTED}|%{AUDITLOG_CAP_PP:UNWANTED}|%{AUDITLOG_CGROUP:UNWANTED}|%{AUDITLOG_CMD:UNWANTED}|%{AUDITLOG_COMM:UNWANTED}|%{AUDITLOG_CWD:UNWANTED}|%{AUDITLOG_DATA:UNWANTED}|%{AUDITLOG_DEV:UNWANTED}|%{AUDITLOG_DEVMAJOR:UNWANTED}|%{AUDITLOG_DEVMINOR:UNWANTED}|%{AUDITLOG_EGID:UNWANTED}|%{AUDITLOG_EUID:UNWANTED}|%{AUDITLOG_EXE:UNWANTED}|%{AUDITLOG_EXIT:UNWANTED}|%{AUDITLOG_FAMILY:UNWANTED}|%{AUDITLOG_FILETYPE:UNWANTED}|%{AUDITLOG_FLAGS:UNWANTED}|%{AUDITLOG_FSGID:UNWANTED}|%{AUDITLOG_FSUID:UNWANTED}|%{AUDITLOG_GID:UNWANTED}|%{AUDITLOG_HOSTNAME:UNWANTED}|%{AUDITLOG_ICMPTYPE:UNWANTED}|%{AUDITLOG_ID:UNWANTED}|%{AUDITLOG_INODE:UNWANTED}|%{AUDITLOG_INODE_GID:UNWANTED}|%{AUDITLOG_INODE_UID:UNWANTED}|%{AUDITLOG_ITEMS:UNWANTED}|%{AUDITLOG_LIST:UNWANTED}|%{AUDITLOG_MODE:UNWANTED}|%{AUDITLOG_MSG:UNWANTED}|%{AUDITLOG_MSGTYPE:UNWANTED}|%{AUDITLOG_NAME:UNWANTED}|%{AUDITLOG_NEW_DISK:UNWANTED}|%{AUDITLOG_NEW_MEM:UNWANTED}|%{AUDITLOG_NEW_VCPU:UNWANTED}|%{AUDITLOG_NEW_NET:UNWANTED}|%{AUDITLOG_NEW_GID:UNWANTED}|%{AUDITLOG_OCOMM:UNWANTED}|%{AUDITLOG_OPID:UNWANTED}|%{AUDITLOG_OSES:UNWANTED}|%{AUDITLOG_OUID:UNWANTED}|%{AUDITLOG_OBJ:UNWANTED}|%{AUDITLOG_OBJ_GID:UNWANTED}|%{AUDITLOG_OBJ_LEV_HIGH:UNWANTED}|%{AUDITLOG_OBJ_LEV_LOW:UNWANTED}|%{AUDITLOG_OBJ_ROLE:UNWANTED}|%{AUDITLOG_OBJ_UID:UNWANTED}|%{AUDITLOG_OBJ_USER:UNWANTED}|%{AUDITLOG_OGID:UNWANTED}|%{AUDITLOG_OLD_DISK:UNWANTED}|%{AUDITLOG_OLD_MEM:UNWANTED}|%{AUDITLOG_OLD_VCPU:UNWANTED}|%{AUDITLOG_OLD_NET:UNWANTED}|%{AUDITLOG_OLD_PROM:UNWANTED}|%{AUDITLOG_PATH:UNWANTED}|%{AUDITLOG_PERM:UNWANTED}|%{AUDITLOG_PID:UNWANTED}|%{AUDITLOG_PPID:UNWANTED}|%{AUDITLOG_PROM:UNWANTED}|%{AUDITLOG_PROTO:UNWANTED}|%{AUDITLOG_RES:UNWANTED}|%{AUDITLOG_RESULT:UNWANTED}|%{AUDITLOG_SADDR:UNWANTED}|%{AUDITLOG_SAUID:UNWANTED}|%{AUDITLOG_SES:UNWANTED}|%{AUDITLOG_SGID:UNWANTED}|%{AUDITLOG_SIG:UNWANTED}|%{AUDITLOG_SUBJ:UNWANTED}|%{AUDITLOG_SUBJ_CLR:UNWANTED}|%{AUDITLOG_SUBJ_ROLE:UNWANTED}|%{AUDITLOG_SUBJ_SEN:UNWANTED}|%{AUDITLOG_SUBJ_USER:UNWANTED}|%{AUDITLOG_SUCCESS:UNWANTED}|%{AUDITLOG_SUID:UNWANTED}|%{AUDITLOG_SYSCALL:UNWANTED}|%{AUDITLOG_TERMINAL:UNWANTED}|%{AUDITLOG_TTY:UNWANTED}|%{AUDITLOG_UID:UNWANTED}|%{AUDITLOG_OP:UNWANTED}|%{AUDITLOG_VM:UNWANTED})+?(\\s)?)+"
+    },
+    {
+      "name": "AUDITLOG_OLD_NET",
+      "pattern": "old_net=%{MAC:audit_old_net}"
+    },
+    {
+      "name": "AUDITLOG_OP",
+      "pattern": "op=%{QS:audit_op}"
+    },
+    {
+      "name": "AUDITLOG_A",
+      "pattern": "a0=%{WORD:audit_a0} a1=%{WORD:audit_a1} a2=%{WORD:audit_a2} a3=%{WORD:audit_a3}"
+    },
+    {
+      "name": "AUDITLOG_SUBJ",
+      "pattern": "subj=%{GREEDYDATA:audit_subj}(?:\\s)"
+    },
+    {
+      "name": "AUDITLOG_AUID",
+      "pattern": "auid=%{NUMBER:audit_auid}"
+    },
+    {
+      "name": "AUDITLOG_ACCT",
+      "pattern": "acct=%{WORD:audit_acct}"
+    },
+    {
+      "name": "AUDITLOG_TYPE",
+      "pattern": "type=%{WORD:audit_type}"
+    },
+    {
+      "name": "AUDITLOG_OLD_PROM",
+      "pattern": "old_prom=%{NUMBER:audit_old_prom}"
+    },
+    {
+      "name": "AUDITLOG_INODE_GID",
+      "pattern": "inode_gid=%{NUMBER:audit_inode_gid}"
+    },
+    {
+      "name": "AUDITLOG_OBJ_UID",
+      "pattern": "obj_uid=%{NUMBER:audit_obj_uid}"
+    },
+    {
+      "name": "AUDITLOG_TTY",
+      "pattern": "tty=%{WORD:audit_tty}"
+    },
+    {
+      "name": "AUDITLOG_CAP_PP",
+      "pattern": "cap_fi=\\b%{GREEDYDATA:audit_cap_pp}\\b"
+    },
+    {
+      "name": "AUDITLOG_MSG",
+      "pattern": "msg=audit\\(%{NUMBER:audit_epoch}:%{NUMBER:audit_id}\\):"
+    },
+    {
+      "name": "AUDITLOG_ARCH",
+      "pattern": "arch=%{WORD:audit_arch}"
+    },
+    {
+      "name": "AUDITLOG_SUBJ_ROLE",
+      "pattern": "subj_role=%{WORD:audit_subj_role}"
+    },
+    {
+      "name": "AUDITLOG_CAP_FI",
+      "pattern": "cap_fi=\\b%{GREEDYDATA:audit_cap_fi}\\b"
+    },
+    {
+      "name": "AUDITLOG_DEVMAJOR",
+      "pattern": "devmajor=%{NUMBER:audit_devmajor}"
+    },
+    {
+      "name": "AUDITLOG_OBJ_LEV_HIGH",
+      "pattern": "obj_lev_high=%{NUMBER:audit_obj_lev_high}"
+    },
+    {
+      "name": "AUDITLOG_CWD",
+      "pattern": "cwd=\\\"%{GREEDYDATA:audit_cwd}\\\""
+    },
+    {
+      "name": "AUDITLOG_SUBJ_SEN",
+      "pattern": "subj_sen=%{WORD:subj_sen}"
+    },
+    {
+      "name": "AUDITLOG_NODE",
+      "pattern": "name=%{WORD:audit_node}"
+    },
+    {
+      "name": "AUDITLOG_VM",
+      "pattern": "vm=%{WORD:audit_vm}"
+    },
+    {
+      "name": "AUDITLOG_CAPABILITY",
+      "pattern": "capability=\\b%{GREEDYDATA:audit_capability}\\b"
+    },
+    {
+      "name": "AUDITLOG_SAUID",
+      "pattern": "sauid=%{NUMBER:audit_sauid}"
+    }
+  ]
+}
