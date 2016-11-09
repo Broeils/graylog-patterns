@@ -1,0 +1,61 @@
+{
+  "extractors": [
+    {
+      "title": "Centreon Broker - SERVICE ALERT",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "SERVICE ALERT:\\s%{NOTSPACE:Hostname};%{NOTSPACE:Service};%{NOTSPACE:State};%{NOTSPACE:StateType};%{NOTSPACE:Retry};%{GREEDYDATA:Output}"
+      },
+      "condition_type": "string",
+      "condition_value": "centreonbroker  - -  SERVICE ALERT:"
+    },
+    {
+      "title": "Centreon Broker - HOST NOTIFICATION",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "HOST NOTIFICATION:\\s%{NOTSPACE:Contact};%{NOTSPACE:Hostname};%{NOTSPACE:State};%{NOTSPACE:Command};%{GREEDYDATA:Output}"
+      },
+      "condition_type": "string",
+      "condition_value": "centreonbroker  - -  HOST NOTIFICATION:"
+    },
+    {
+      "title": "Centreon Broker - HOST ALERT",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "HOST ALERT:\\s%{NOTSPACE:Hostname};%{NOTSPACE:State};%{NOTSPACE:StateType};%{NOTSPACE:Retry};%{GREEDYDATA:Output}"
+      },
+      "condition_type": "string",
+      "condition_value": "centreonbroker  - -  HOST ALERT:"
+    },
+    {
+      "title": "Centreon Broker - SERVICE NOTIFICATION",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "SERVICE NOTIFICATION:\\s%{NOTSPACE:Contact};%{NOTSPACE:Hostname};%{NOTSPACE:Service};%{NOTSPACE:State};%{NOTSPACE:Command};%{GREEDYDATA:Output}"
+      },
+      "condition_type": "string",
+      "condition_value": "centreonbroker  - -  SERVICE NOTIFICATION:"
+    }
+  ],
+  "version": "2.0.0-SNAPSHOT"
+}
