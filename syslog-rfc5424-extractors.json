@@ -1,0 +1,19 @@
+{
+  "extractors": [
+    {
+      "title": "SYSLOGBASE_5424",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "full_message",
+      "extractor_config": {
+        "grok_pattern": "%{SYSLOGBASE_5424:UNWANTED}"
+      },
+      "condition_type": "none",
+      "condition_value": ""
+    }
+  ],
+  "version": "2.1.0-SNAPSHOT"
+}

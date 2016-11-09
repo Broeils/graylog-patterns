@@ -1,0 +1,19 @@
+{
+  "extractors": [
+    {
+      "title": "AUDITLOG_REDHAT",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 1,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "full_message",
+      "extractor_config": {
+        "grok_pattern": "%{AUDITLOG:UNWANTED}"
+      },
+      "condition_type": "regex",
+      "condition_value": "type=\\b(\\w+)\\b msg=audit\\((?<![0-9.+-])(?>[+-]?(?:(?:[0-9]+(?:\\.[0-9]+)?)|(?:\\.[0-9]+))):(?<![0-9.+-])(?>[+-]?(?:(?:[0-9]+(?:\\.[0-9]+)?)|(?:\\.[0-9]+)))\\):\\s"
+    }
+  ],
+  "version": "2.1.0-SNAPSHOT"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Syslog RFC5424",
+  "description": "Adds patterns for base RFC5424 style messages",
+  "category": "Operating Systems",
+  "inputs": [],
+  "streams": [],
+  "outputs": [],
+  "dashboards": [],
+  "grok_patterns": [
+    {
+      "name": "SYSLOGBASE_5424",
+      "pattern": "<%{NONNEGINT:priority}>(?:%{NONNEGINT:facility})?(?:\\s)?(?:%{SYSLOGTIMESTAMP:timestamp}|%{TIMESTAMP_ISO8601:timestamp})? (?:%{SYSLOGHOST:logsource}\\s)?(?:%{PROG:program})?(?:(?:\\[%{POSINT:pid}\\])|(?:(?:\\s)?%{POSINT:pid}))?(?:\\s\\-\\s\\-\\s|:(\\s)?)?%{GREEDYDATA:message}"
+    }
+  ]
+}
