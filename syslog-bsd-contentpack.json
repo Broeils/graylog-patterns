@@ -1,0 +1,31 @@
+{
+  "name": "Syslog BSD-style",
+  "description": "Adds patterns for BSD style syslog messages",
+  "category": "Operating Systems",
+  "inputs": [],
+  "streams": [],
+  "outputs": [],
+  "dashboards": [],
+  "grok_patterns": [
+    {
+      "name": "SYSLOGBASE_BSD",
+      "pattern": "<%{NONNEGINT:priority}>(%{SYSLOGTIMESTAMP:timestamp}|%{TIMESTAMP_ISO8601:timestamp}) ?(?:%{SYSLOGHOST:logsource}?\\s)? %{PROG:program}: %{GREEDYDATA:message}"
+    },
+    {
+      "name": "SYSLOGHOST",
+      "pattern": "%{IPORHOST:UNWANTED}"
+    },
+    {
+      "name": "TIME",
+      "pattern": "(?!<[0-9])%{HOUR:UNWANTED}:%{MINUTE:UNWANTED}(?::%{SECOND:UNWANTED})(?![0-9])"
+    },
+    {
+      "name": "TIMESTAMP_ISO8601",
+      "pattern": "%{YEAR:UNWANTED}-%{MONTHNUM:UNWANTED}-%{MONTHDAY:UNWANTED}[T ]%{HOUR:UNWANTED}:?%{MINUTE:UNWANTED}(?::?%{SECOND:UNWANTED})?%{ISO8601_TIMEZONE:timezone}?"
+    },
+    {
+      "name": "SYSLOGTIMESTAMP",
+      "pattern": "%{MONTH:UNWANTED} +%{MONTHDAY:UNWANTED} %{TIME:UNWANTED}"
+    }
+  ]
+}

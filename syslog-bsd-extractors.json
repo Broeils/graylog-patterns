@@ -1,0 +1,31 @@
+{
+  "extractors": [
+    {
+      "title": "SYSLOGBASE_BSD",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "<%{NONNEGINT:priority}>(%{SYSLOGTIMESTAMP:timestamp}|%{TIMESTAMP_ISO8601:timestamp}) ?(?:%{SYSLOGHOST:logsource}?\\s)?%{PROG:program}?(?:(?:\\[)?%{POSINT:pid}(?:\\])?)?: %{GREEDYDATA:message}"
+      },
+      "condition_type": "none",
+      "condition_value": ""
+    },
+    {
+      "title": "BSD Copy IP to Source Field",
+      "extractor_type": "copy_input",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "gl2_remote_ip",
+      "target_field": "source",
+      "extractor_config": {},
+      "condition_type": "none",
+      "condition_value": ""
+    }
+  ],
+  "version": "2.0.0-SNAPSHOT"
+}
