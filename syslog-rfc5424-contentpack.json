@@ -9,7 +9,23 @@
   "grok_patterns": [
     {
       "name": "SYSLOGBASE_5424",
-      "pattern": "<%{NONNEGINT:priority}>(?:%{NONNEGINT:facility})?(?:\\s)?(?:%{SYSLOGTIMESTAMP:timestamp}|%{TIMESTAMP_ISO8601:timestamp})? (?:%{SYSLOGHOST:logsource}\\s)?(?:%{PROG:program})?(?:(?:\\[%{POSINT:pid}\\])|(?:(?:\\s)?%{POSINT:pid}))?(?:\\s\\-\\s\\-\\s|:(\\s)?)?%{GREEDYDATA:message}"
+      "pattern": "<%{NONNEGINT:priority}>(?:%{NONNEGINT:facility})?\\s?(?:%{SYSLOGTIMESTAMP:timestamp}|%{TIMESTAMP_ISO8601:timestamp})?\\s?(?:%{SYSLOGHOST:logsource}?\\s)?\\s?(?:%{PROG:program}(?:(?:\\[%{POSINT:pid}\\])|(?:%{POSINT:pid}))?)(?:\\s\\-\\s\\-\\s|:(\\s)?)%{GREEDYDATA:message}"
+    },
+    {
+      "name": "IPORHOST",
+      "pattern": "(?:%{IP:UNWANTED}|%{HOSTNAME:UNWANTED})"
+    },
+    {
+      "name": "SYSLOGHOST",
+      "pattern": "%{IPORHOST:UNWANTED}"
+    },
+    {
+      "name": "TIMESTAMP_ISO8601",
+      "pattern": "%{YEAR:UNWANTED}-%{MONTHNUM:UNWANTED}-%{MONTHDAY:UNWANTED}[T ]%{HOUR:UNWANTED}:?%{MINUTE:UNWANTED}(?::?%{SECOND:UNWANTED})?%{ISO8601_TIMEZONE:timezone}?"
+    },
+    {
+      "name": "SYSLOGTIMESTAMP",
+      "pattern": "%{MONTH:UNWANTED} +%{MONTHDAY:UNWANTED} %{TIME:UNWANTED}"
     }
   ]
 }

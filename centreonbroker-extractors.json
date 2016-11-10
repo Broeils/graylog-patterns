@@ -9,10 +9,10 @@
       "source_field": "message",
       "target_field": "",
       "extractor_config": {
-        "grok_pattern": "SERVICE ALERT:\\s%{NOTSPACE:Hostname};%{NOTSPACE:Service};%{NOTSPACE:State};%{NOTSPACE:StateType};%{NOTSPACE:Retry};%{GREEDYDATA:Output}"
+        "grok_pattern": "%{GREEDYDATA:Type}:\\s%{NOTSPACE:Hostname};%{NOTSPACE:Service};%{NOTSPACE:State};%{NOTSPACE:StateType};%{NOTSPACE:Retry};%{GREEDYDATA:Output}"
       },
       "condition_type": "string",
-      "condition_value": "centreonbroker  - -  SERVICE ALERT:"
+      "condition_value": "SERVICE ALERT:"
     },
     {
       "title": "Centreon Broker - HOST NOTIFICATION",
@@ -23,10 +23,10 @@
       "source_field": "message",
       "target_field": "",
       "extractor_config": {
-        "grok_pattern": "HOST NOTIFICATION:\\s%{NOTSPACE:Contact};%{NOTSPACE:Hostname};%{NOTSPACE:State};%{NOTSPACE:Command};%{GREEDYDATA:Output}"
+        "grok_pattern": "%{GREEDYDATA:Type}:\\s%{NOTSPACE:Contact};%{NOTSPACE:Hostname};%{NOTSPACE:State};%{NOTSPACE:Command};%{GREEDYDATA:Output}"
       },
       "condition_type": "string",
-      "condition_value": "centreonbroker  - -  HOST NOTIFICATION:"
+      "condition_value": "HOST NOTIFICATION:"
     },
     {
       "title": "Centreon Broker - HOST ALERT",
@@ -37,10 +37,10 @@
       "source_field": "message",
       "target_field": "",
       "extractor_config": {
-        "grok_pattern": "HOST ALERT:\\s%{NOTSPACE:Hostname};%{NOTSPACE:State};%{NOTSPACE:StateType};%{NOTSPACE:Retry};%{GREEDYDATA:Output}"
+        "grok_pattern": "%{GREEDYDATA:Type}\\s%{NOTSPACE:Hostname};%{NOTSPACE:State};%{NOTSPACE:StateType};%{NOTSPACE:Retry};%{GREEDYDATA:Output}"
       },
       "condition_type": "string",
-      "condition_value": "centreonbroker  - -  HOST ALERT:"
+      "condition_value": "HOST ALERT:"
     },
     {
       "title": "Centreon Broker - SERVICE NOTIFICATION",
@@ -51,10 +51,10 @@
       "source_field": "message",
       "target_field": "",
       "extractor_config": {
-        "grok_pattern": "SERVICE NOTIFICATION:\\s%{NOTSPACE:Contact};%{NOTSPACE:Hostname};%{NOTSPACE:Service};%{NOTSPACE:State};%{NOTSPACE:Command};%{GREEDYDATA:Output}"
+        "grok_pattern": "%{GREEDYDATA:Type}:\\s%{NOTSPACE:Contact};%{NOTSPACE:Hostname};%{NOTSPACE:Service};%{NOTSPACE:State};%{NOTSPACE:Command};%{GREEDYDATA:Output}"
       },
       "condition_type": "string",
-      "condition_value": "centreonbroker  - -  SERVICE NOTIFICATION:"
+      "condition_value": "SERVICE NOTIFICATION:"
     }
   ],
   "version": "2.0.0-SNAPSHOT"
